@@ -1,17 +1,23 @@
-apply plugin: 'war'
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'org.dm.gradle:gradle-bundle-plugin:0.7.1'
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.dm.bundle'
 
 version = '1.0.0'
 
-war {
-  archiveName = project.name + '_' + project.version + '.jar'
-  manifest {
-    attributes 'Bundle-ManifestVersion': '2',
-      'Bundle-SymbolicName': project.name,
-      'Bundle-Version': project.version,
-      'Bundle-ClassPath': 'WEB-INF/classes',
-      'Web-ContextPath': '/' + project.name,
-      'Import-Package': 'javax.servlet.http;version="[2.5,3.0)", javax.servlet;version="[2.5,3.0)"'
-  }
+ext {
+  gradleVersion = '2.9'
+  servletMinVersion = '2.5'
+  servletMaxVersion = '3.0'
+  staticFilesDir = 'src/main/webapp'
 }
 
 repositories {
@@ -19,12 +25,26 @@ repositories {
 }
 
 dependencies {
-  providedCompile 'javax.servlet:servlet-api:2.5'
+  compile "javax.servlet:servlet-api:$servletMinVersion"
+}
+
+jar {
+  archiveName = project.name + '_' + project.version + '.jar'
+  manifest {
+    attributes 'Web-ContextPath': '/' + project.name
+  }
+}
+
+bundle {
+  instruction 'Import-Package', "javax.servlet;version=\"[$servletMinVersion,$servletMaxVersion)\""
+  instruction 'Import-Package', "javax.servlet.http;version=\"[$servletMinVersion,$servletMaxVersion)\""
+  instruction '-noee', 'true'
+  instruction '-wab', staticFilesDir
 }
 
 task wrapper(type: Wrapper) {
   description = 'Generates Gradle wrapper files.'
-  gradleVersion = '2.9'
+  gradleVersion = project.ext.gradleVersion
   group = 'Build Setup'
 }
 
