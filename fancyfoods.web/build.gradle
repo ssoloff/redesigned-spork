@@ -1,0 +1,24 @@
+apply plugin: 'war'
+
+version = '1.0.0'
+
+war {
+  archiveName = project.name + '_' + project.version + '.jar'
+  manifest {
+    attributes 'Bundle-ManifestVersion': '2',
+      'Bundle-SymbolicName': project.name,
+      'Bundle-Version': project.version,
+      'Bundle-ClassPath': 'WEB-INF/classes',
+      'Web-ContextPath': '/' + project.name,
+      'Import-Package': 'javax.servlet.http;version="[2.5,3.0)", javax.servlet;version="[2.5,3.0)"'
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  providedCompile 'javax.servlet:servlet-api:2.5'
+}
+

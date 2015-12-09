@@ -1,0 +1,11 @@
+<web-app>
+  <servlet>
+    <servlet-name>SayHello</servlet-name>
+    <servlet-class>fancyfoods.web.SayHello</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SayHello</servlet-name>
+    <url-pattern>/SayHello</url-pattern>
+  </servlet-mapping>
+</web-app>
+
