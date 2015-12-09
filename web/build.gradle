@@ -1,6 +1,9 @@
+import org.dm.gradle.plugins.bundle.BundleUtils
+
 version = '1.0.0'
 
 ext {
+  bundleSymbolicName = BundleUtils.getBundleSymbolicName(project)
   servletMinVersion = '2.5'
   servletMaxVersion = '3.0'
   staticFilesDir = 'src/main/webapp'
@@ -15,9 +18,9 @@ dependencies {
 }
 
 jar {
-  archiveName = project.name + '_' + project.version + '.jar'
+  archiveName = "${bundleSymbolicName}_${version}.jar"
   manifest {
-    attributes 'Web-ContextPath': '/' + project.name
+    attributes 'Web-ContextPath': "/$bundleSymbolicName".toString() // force GString to String
   }
 }
 

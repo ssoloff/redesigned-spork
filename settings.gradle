@@ -1,2 +1,4 @@
-include 'fancyfoods.web'
+rootProject.name = 'fancyfoods'
+
+include 'web'
 
