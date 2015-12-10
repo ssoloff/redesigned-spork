@@ -1,0 +1,16 @@
+import org.dm.gradle.plugins.bundle.BundleUtils
+
+version = '1.0.0'
+
+ext {
+  bundleSymbolicName = BundleUtils.getBundleSymbolicName(project)
+}
+
+jar {
+  archiveName = "${bundleSymbolicName}_${version}.jar"
+}
+
+bundle {
+  instruction 'Fragment-Host', 'fancyfoods.web;bundle-version="[1.0.0,2.0.0)"'
+}
+
