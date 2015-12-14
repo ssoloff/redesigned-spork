@@ -1,0 +1,18 @@
+import org.dm.gradle.plugins.bundle.BundleUtils
+
+version = '1.0.0'
+
+ext {
+  bundleSymbolicName = BundleUtils.getBundleSymbolicName(project)
+}
+
+jar {
+  archiveName = "${bundleSymbolicName}_${version}.jar"
+}
+
+bundle {
+  instruction 'Export-Package', "fancyfoods.food;version=\"$version\""
+  instruction 'Export-Package', "fancyfoods.offers;version=\"$version\""
+  instruction '-noee', 'true'
+}
+

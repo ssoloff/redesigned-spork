@@ -1,5 +1,6 @@
 rootProject.name = 'fancyfoods'
 
+include 'api'
 include 'web'
 include 'web.nls.fr'
 
