@@ -14,6 +14,7 @@ repositories {
 }
 
 dependencies {
+  compile project(':api')
   compile "javax.servlet:servlet-api:$servletMinVersion"
 }
 
@@ -25,6 +26,9 @@ jar {
 }
 
 bundle {
+  instruction 'Import-Package', 'fancyfoods.food;version="[1.0.0,2.0.0)"'
+  instruction 'Import-Package', 'fancyfoods.offers;version="[1.0.0,2.0.0)"'
+  instruction 'Import-Package', 'javax.naming'
   instruction 'Import-Package', "javax.servlet;version=\"[$servletMinVersion,$servletMaxVersion)\""
   instruction 'Import-Package', "javax.servlet.http;version=\"[$servletMinVersion,$servletMaxVersion)\""
   instruction '-noee', 'true'

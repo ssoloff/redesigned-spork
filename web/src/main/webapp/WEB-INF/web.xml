@@ -3,9 +3,17 @@
     <servlet-name>SayHello</servlet-name>
     <servlet-class>fancyfoods.web.SayHello</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SayHelloJndi</servlet-name>
+    <servlet-class>fancyfoods.web.SayHelloJndi</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>SayHello</servlet-name>
     <url-pattern>/SayHello</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SayHelloJndi</servlet-name>
+    <url-pattern>/SayHelloJndi</url-pattern>
   </servlet-mapping>
 </web-app>
 
