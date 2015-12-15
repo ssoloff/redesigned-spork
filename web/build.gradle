@@ -9,10 +9,6 @@ ext {
   staticFilesDir = 'src/main/webapp'
 }
 
-repositories {
-  mavenCentral()
-}
-
 dependencies {
   compile project(':api')
   compile "javax.servlet:servlet-api:$servletMinVersion"

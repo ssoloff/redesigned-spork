@@ -1,9 +1,15 @@
 import org.dm.gradle.plugins.bundle.BundleUtils
 
+apply plugin: 'groovy'
+
 version = '1.0.0'
 
 ext {
   bundleSymbolicName = BundleUtils.getBundleSymbolicName(project)
+}
+
+dependencies {
+  compile 'org.codehaus.groovy:groovy-all:2.4.5'
 }
 
 jar {

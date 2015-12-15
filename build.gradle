@@ -13,6 +13,10 @@ subprojects {
   apply plugin: 'org.dm.bundle'
 
   group = 'fancyfoods'
+
+  repositories {
+    mavenCentral()
+  }
 }
 
 task wrapper(type: Wrapper) {
