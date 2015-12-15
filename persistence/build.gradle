@@ -1,0 +1,24 @@
+import org.dm.gradle.plugins.bundle.BundleUtils
+
+version = '1.0.0'
+
+ext {
+  bundleSymbolicName = BundleUtils.getBundleSymbolicName(project)
+}
+
+dependencies {
+  compile project(':api')
+  compile 'org.apache.openjpa:openjpa:2.0.0'
+}
+
+jar {
+  archiveName = "${bundleSymbolicName}_${version}.jar"
+}
+
+bundle {
+  instruction 'Import-Package', 'fancyfoods.food;version="[1.0.0,2.0.0)"'
+  instruction 'Import-Package', 'javax.persistence;version="[1.1,2.0)"'
+  instruction 'Meta-Persistence', 'META-INF/persistence.xml'
+  instruction '-noee', 'true'
+}
+

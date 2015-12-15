@@ -4,7 +4,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'org.dm.gradle:gradle-bundle-plugin:0.7.1'
+    classpath 'org.dm.gradle:gradle-bundle-plugin:0.6.4'
   }
 }
 
@@ -13,6 +13,7 @@ subprojects {
   apply plugin: 'org.dm.bundle'
 
   group = 'fancyfoods'
+  sourceCompatibility = '1.6'
 
   repositories {
     mavenCentral()
