@@ -1,0 +1,18 @@
+import org.dm.gradle.plugins.bundle.BundleUtils
+
+version = '1.0.0'
+
+ext {
+  bundleSymbolicName = BundleUtils.getBundleSymbolicName(project)
+}
+
+jar {
+  archiveName = "${bundleSymbolicName}_${version}.jar"
+}
+
+bundle {
+  instruction 'Import-Package', 'javax.sql'
+  instruction 'Import-Package', 'org.apache.derby.jdbc'
+  instruction '-noee', 'true'
+}
+
