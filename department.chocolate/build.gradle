@@ -15,7 +15,6 @@ jar {
 }
 
 bundle {
-  instruction 'Bundle-Blueprint', 'OSGI-INF/blueprint/*.xml'
   instruction 'Import-Package', "fancyfoods.food;version=\"[1.0.0,2.0.0)\""
   instruction 'Import-Package', "fancyfoods.offers;version=\"[1.0.0,2.0.0)\""
   instruction '-noee', 'true'
