@@ -13,6 +13,5 @@ jar {
 bundle {
   instruction 'Import-Package', 'javax.sql'
   instruction 'Import-Package', 'org.apache.derby.jdbc'
-  instruction '-noee', 'true'
 }
 

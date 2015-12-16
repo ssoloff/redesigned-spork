@@ -19,6 +19,5 @@ jar {
 bundle {
   instruction 'Export-Package', "fancyfoods.food;version=\"$version\""
   instruction 'Export-Package', "fancyfoods.offers;version=\"$version\""
-  instruction '-noee', 'true'
 }
 

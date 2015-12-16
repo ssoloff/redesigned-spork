@@ -27,7 +27,6 @@ bundle {
   instruction 'Import-Package', 'javax.naming'
   instruction 'Import-Package', "javax.servlet;version=\"[$servletMinVersion,$servletMaxVersion)\""
   instruction 'Import-Package', "javax.servlet.http;version=\"[$servletMinVersion,$servletMaxVersion)\""
-  instruction '-noee', 'true'
   instruction '-wab', staticFilesDir
 }
 
