@@ -4,7 +4,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'org.dm.gradle:gradle-bundle-plugin:0.6.4'
+    classpath 'org.dm.gradle:gradle-bundle-plugin:0.7.1'
   }
 }
 
@@ -14,6 +14,10 @@ subprojects {
 
   group = 'fancyfoods'
   sourceCompatibility = '1.6'
+
+  tasks.withType(JavaCompile) {
+    options.bootClasspath = "$JDK6_HOME/jre/lib/rt.jar"
+  }
 
   repositories {
     mavenCentral()
