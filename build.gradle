@@ -16,7 +16,7 @@ subprojects {
   sourceCompatibility = '1.6'
 
   tasks.withType(JavaCompile) {
-    options.bootClasspath = "$JDK6_HOME/jre/lib/rt.jar"
+    options.bootClasspath = "$local_jdk6Home/jre/lib/rt.jar"
   }
 
   repositories {
