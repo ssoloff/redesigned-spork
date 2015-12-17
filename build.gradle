@@ -17,6 +17,7 @@ subprojects {
 
   tasks.withType(JavaCompile) {
     options.bootClasspath = "$local_jdk6Home/jre/lib/rt.jar"
+    options.compilerArgs = ['-Xlint:unchecked']
   }
 
   repositories {
@@ -29,4 +30,3 @@ task wrapper(type: Wrapper) {
   gradleVersion = '2.9'
   group = 'Build Setup'
 }
-
