@@ -4,7 +4,7 @@ include 'api'
 include 'business'
 include 'datasource'
 include 'department.chocolate'
+include 'department.cheese'
 include 'persistence'
 include 'web'
 include 'web.nls.fr'
-

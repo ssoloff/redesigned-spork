@@ -1,0 +1,20 @@
+import org.dm.gradle.plugins.bundle.BundleUtils
+
+version = '1.0.0'
+
+ext {
+  bundleSymbolicName = BundleUtils.getBundleSymbolicName(project)
+}
+
+dependencies {
+  compile project(':api')
+}
+
+jar {
+  archiveName = "${bundleSymbolicName}_${version}.jar"
+}
+
+bundle {
+  instruction 'Import-Package', "fancyfoods.food;version=\"[1.0.0,2.0.0)\""
+  instruction 'Import-Package', "fancyfoods.offers;version=\"[1.0.0,2.0.0)\""
+}
