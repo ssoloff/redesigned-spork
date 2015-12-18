@@ -11,9 +11,6 @@
     <non-jta-data-source>
       osgi:service/jdbc/fancyfoodsdb
     </non-jta-data-source>
-    <class>fancyfoods.persistence.CustomerImpl</class>
-    <class>fancyfoods.persistence.FoodImpl</class>
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
     </properties>
