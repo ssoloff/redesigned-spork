@@ -17,7 +17,7 @@ dependencies {
 jar {
   archiveName = "${bundleSymbolicName}_${version}.jar"
   manifest {
-    attributes 'Web-ContextPath': "/$bundleSymbolicName".toString() // force GString to String
+    attributes 'Web-ContextPath': "/$bundleSymbolicName"
   }
 }
 
@@ -29,4 +29,3 @@ bundle {
   instruction 'Import-Package', "javax.servlet.http;version=\"[$servletMinVersion,$servletMaxVersion)\""
   instruction '-wab', staticFilesDir
 }
-
