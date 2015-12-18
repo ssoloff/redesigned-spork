@@ -43,6 +43,15 @@ public class InventoryImpl implements Inventory {
 
     @Override
     public int removeStock(String name, int quantity) {
-        return 0; // TODO
+        FoodImpl food = getFood(name);
+        int currentLevel = food.getQuantityInStock();
+        int newLevel = currentLevel - quantity;
+        if (newLevel >= 0) {
+            food.setQuantityInStock(newLevel);
+            em.persist(food);
+            return newLevel;
+        } else {
+            throw new IllegalArgumentException("Cannot have level below 0: " + newLevel);
+        }
     }
 }

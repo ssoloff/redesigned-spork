@@ -2,6 +2,10 @@
     xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:jpa="http://aries.apache.org/xmlns/jpa/v1.0.0"
     xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.0.0">
+  <bean id="accounting" class="fancyfoods.persistence.AccountingImpl">
+    <tx:transaction method="*" value="Required" />
+    <jpa:context property="entityManager" unitname="fancyfoods" />
+  </bean>
   <bean id="inventory" class="fancyfoods.persistence.InventoryImpl">
     <tx:transaction method="*" value="Required" />
     <jpa:context property="entityManager" unitname="fancyfoods" />
@@ -9,5 +13,13 @@
   <bean id="populator" class="fancyfoods.persistence.InventoryPopulater" init-method="populate" activation="eager">
     <property name="inventory" ref="inventory" />
   </bean>
+  <service ref="accounting" interface="fancyfoods.food.Accounting" />
   <service ref="inventory" interface="fancyfoods.food.Inventory" />
+  <service interface="fancyfoods.food.Shop">
+    <bean class="fancyfoods.persistence.ShopImpl">
+      <tx:transaction method="*" value="Required" />
+      <property name="accounting" ref="accounting" />
+      <property name="inventory" ref="inventory" />
+    </bean>
+  </service>
 </blueprint>
